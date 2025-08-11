@@ -1,15 +1,15 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 class SellerBase(BaseModel):
     name: str
-    email: str
+    email: EmailStr
     phone: str
 
 class SellerCreate(SellerBase):
     pass
 
-class Seller(SellerBase):
+class SellerResponse(SellerBase):
     id: int
 
     class Config:
-        orm_mode = True  # Для работы с SQLAlchemy моделями
+        orm_mode = True
